@@ -46,3 +46,10 @@ jobs:
       # PASO 5: Mensaje de éxito
       - name: ✅ Pipeline completado
         run: echo "🎉 CI Pipeline ejecutado exitosamente"
+  lint:
+    name: Verificar longitud de líneas
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Revisar líneas mayores a 80 caracteres
+        run: awk 'length > 80' test.sh
